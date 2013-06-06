@@ -20,7 +20,9 @@
    
 </head>
 <body>
+
 <!-- Home -->
+
 <div data-role="page" id="page1">
     <div data-theme="a" data-role="header">
         <h3>
@@ -28,45 +30,137 @@
         </h3>
     </div>
     <div data-role="content">
-        <div class="forma1" data-role="fieldcontain">
-            <label for="fecha">
-                Fecha
-            </label>
-            <input name="fecha" id="fecha" placeholder="" value="" type="date">
-        </div>
-        <div class="forma1" data-role="fieldcontain">
-            <label for="agente">
-                Agente
-            </label>
-            <select id="agente" name="agente" data-mini="true">
-                <option value="O1">
-                    Agente 1
-                </option>
-                <option value="o2">
-                    Agente 2
-                </option>
-            </select>
-        </div>
-        <div class="forma1" data-role="fieldcontain">
-            <label for="nip">
-                NIP
-            </label>
-            <input name="fecha" id="nip" placeholder="NIP" value="" type="text">
-        </div>
-        <div class="ui-grid-a">
-            <div class="ui-block-a">
-                <a class="forma1" id="login" data-role="button" data-transition="slide"
-                href="#page1">
-                    Iniciar
-                </a>
-            </div>
-            <div class="ui-block-b">
-                <a data-role="button" href="#page1">
-                    Mis Ventas
-                </a>
-            </div>
-        </div>
+      
+
+<select name="select-choice-a" id="agente" data-native-menu="false">
+    <option>Agente</option>
+
+</select>
+
+<label for="text-basic">Nip:</label>
+<input name="text-basic" id="anip" value="" type="text" placeholder="nip">
+<input id="iniciar" value="Iniciar"  data-theme="b" type="button">
+
+      
     </div>
 </div>
+<div data-role="page" id="page2">
+    <div data-theme="a" data-role="header">
+        <a id="salir" data-role="button" data-transition="none" href="#page1"
+        data-icon="delete" data-iconpos="left" class="ui-btn-right">
+            Salir
+        </a>
+        <h3>
+            Pedido
+        </h3>
+    </div>
+    <div data-role="content">
+        <a id="bpedido" data-role="button">
+            Pedido
+        </a>
+        <a id="bdevolucion" data-role="button">
+            Devolución
+        </a>
+    </div>
+</div>
+
+<div data-role="page" id="page3">
+    <div data-theme="a" data-role="header">
+        <h3>
+            Cliente
+        </h3>
+    </div>
+    <div data-role="content">
+      
+
+<select name="select-choice-a" id="cliente" data-native-menu="false">
+    <option>Cliente</option>
+
+</select>
+ <a id="irpedido" data-role="button"  data-theme="b" data-icon="arrow-r" data-iconpos="right">
+            Pedido
+        </a>
+
+      
+    </div>
+</div>
+
+<div data-role="page" id="page4">
+    <div data-theme="a" data-role="header">
+        <h3>
+            Pedido
+        </h3>
+    </div>
+    <div data-role="content">
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <div data-role="fieldcontain">
+                    <input disabled="disabled" name="" id="foliopedido" placeholder="" value="" data-mini="true" type="text">
+                </div>
+            </div>
+            <div class="ui-block-b">
+               <div data-role="fieldcontain">
+                    <input name="" id="pedidocliente" placeholder="Pedido Cliente" value="" data-mini="true" type="text">
+                </div>
+                
+            </div>
+            <div class="ui-block-a">
+            </div>
+            <div class="ui-block-b">
+               
+            </div>
+        </div>
+      </br>
+
+<ul data-role="listview" data-inset="true" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Buscar producto...">
+    <li data-icon="plus" data-iconpos="right"><a href="#">3555 - Hielo</a></li>
+    <li data-icon="plus" data-iconpos="right"><a href="#">5555 - Hielo Barra</a></li>
+    
+</ul>
+
+
+<ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true">
+    <li>
+      <a href="#"><span class="cantidad">1</span>
+        <span class="producto">Broken Bells</span>
+        <span class="precio">23450</span></a>
+        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+    </li>
+    <li><a href="#">
+        <img src="../../_assets/img/album-hc.jpg">
+        <h2>Warning</h2>
+        <p>Hot Chip</p></a>
+        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+    </li>
+    <li><a href="#">
+        <img src="../../_assets/img/album-p.jpg">
+        <h2>Wolfgang Amadeus Phoenix</h2>
+        <p>Phoenix</p></a>
+        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+    </li>
+</ul>
+<div data-role="popup" id="purchase" data-theme="d" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+    <h3>Purchase Album?</h3>
+    <p>Your download will begin immediately on your mobile device when you purchase.</p>
+    <a href="index.html" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true" data-mini="true">Buy: $10.99</a>
+    <a href="index.html" data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>
+</div>
+
+
+
+
+
+       
+    </div>
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3>
+        </h3>
+        <a data-role="button" href="#page1" data-icon="check" data-iconpos="right" class="ui-btn-right" id="enviarpedido">
+            Terminar Pedido
+        </a>
+    </div>
+</div>
+
+
 </body>
 </html>

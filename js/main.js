@@ -18,9 +18,9 @@ url: "http://10.32.127.5/thmovil/com/getagente.asp"
     
 
 });
-
-
 }
+
+
 
 
 function getclientes (idagente) {
@@ -78,7 +78,29 @@ $(document).ready(function() {
 	});
 
 
+$('.mas').click(function() {
+	var valor = parseInt($('.cant').val());
+	$('.cant').val(valor + 1);
 
+	// body...
+});
+
+$('.menos').click(function() {
+	var valor = parseInt($('.cant').val());
+	if (valor > 1){
+	$('.cant').val(valor - 1);
+      }
+	// body...
+});
+
+$('#bcantok').click(function() {
+
+	var c = $('.cant').val();
+	
+	$('.cantidad').text(c);
+	$('.popcant').popup('close');
+	// body...
+});
 
 
 

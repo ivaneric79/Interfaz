@@ -122,28 +122,19 @@
 <ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true">
     <li>
       <a href="#"><span class="cantidad">1</span>
-        <span class="producto">Broken Bells</span>
+        <span class="producto">Hielo</span>
         <span class="precio">23450</span></a>
-        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+        <a href="#mas" data-rel="popup" data-position-to="window" data-transition="pop">Cantidad</a>
     </li>
-    <li><a href="#">
-        <img src="../../_assets/img/album-hc.jpg">
-        <h2>Warning</h2>
-        <p>Hot Chip</p></a>
-        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
-    </li>
-    <li><a href="#">
-        <img src="../../_assets/img/album-p.jpg">
-        <h2>Wolfgang Amadeus Phoenix</h2>
-        <p>Phoenix</p></a>
-        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
-    </li>
+    
 </ul>
-<div data-role="popup" id="purchase" data-theme="d" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
-    <h3>Purchase Album?</h3>
-    <p>Your download will begin immediately on your mobile device when you purchase.</p>
-    <a href="index.html" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true" data-mini="true">Buy: $10.99</a>
-    <a href="index.html" data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>
+<div class="popcant" data-role="popup" id="mas" data-theme="d" data-overlay-theme="b" class="ui-content" >
+    
+<input name="" class="cant" placeholder="" value="1" data-mini="true" type="text">
+    <a class="mas" data-role="button" data-iconpos="notext" data-icon="plus" data-inline="true"></a>
+    <a  class="menos" data-role="button" data-iconpos="notext" data-inline="true" data-icon="minus"></a>
+
+    <a id="bcantok" data-theme="b" data-role="button" data-icon="back">OK</a>
 </div>
 
 

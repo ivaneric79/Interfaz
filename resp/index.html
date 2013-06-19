@@ -53,7 +53,7 @@
     </div>
     <div data-role="content">
 <ul data-role="listview" data-inset="fasle">
-    <li data-role="list-divider"><h1 style="float:left;">Ciente</h1><a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="bars" data-theme="b" class=" okpedido derecha">Siguiente</a><div class="clear"></div></li>
+    <li data-role="list-divider"><h1 style="float:left;">Ciente</h1><a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="bars" data-theme="b" class="derecha">Pedido</a><div class="clear"></div></li>
     <li class="clienterow hidden" data-icon="delete"><a href="#">
         <h2>Cliente</h2>
         <p><strong>Pago: </strong><span class="ccpago">Contado</span></p>
@@ -123,63 +123,30 @@
         </div>
       </br>
 
-
-
-   
+<ul data-role="listview" data-inset="true" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Buscar producto...">
+    <li data-icon="plus" data-iconpos="right"><a href="#">3555 - Hielo</a></li>
+    <li data-icon="plus" data-iconpos="right"><a href="#">5555 - Hielo Barra</a></li>
     
-</ul> 
+</ul>
 
-<ul class="productlist" data-role="listview" data-split-icon="minus" data-split-theme="d" data-inset="false">
-     <li data-role="list-divider">
-        <span class="chead">Cant</span>
-        <span class="phead">Descripción</span>
-        <span class="prhead">Precio</span></a>
-    </li>
 
-    <div class="clear"></div>
-    <li class="linea">
-      <a href="#mas" data-rel="popup" data-position-to="window" data-transition="pop" pclave="12" class="partida"><span class="cantidad">1</span>
+<ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true">
+    <li>
+      <a href="#"><span class="cantidad">1</span>
         <span class="producto">Hielo</span>
         <span class="precio">23450</span></a>
-        <a href="#" onclick="eliminapartida(this)">Eliminar</a>
-         <div class="clear"></div> 
+        <a href="#mas" data-rel="popup" data-position-to="window" data-transition="pop">Cantidad</a>
     </li>
     
-   
 </ul>
- <div class="clear"></div> </br></br>
-<ul data-role="listview">
- <li data-role="list-divider" data-theme="d" class="totalbar">
-      
-        <div class="ltotal">Total: </div>
-        <div class="total"><span>$ </span><span id="total">0.00</span></div></a>
-
-    </li>
-   
-</ul>
-<div class="popcant" data-role="popup" id="mas" data-theme="d" data-overlay-theme="b" class="ui-content"  >
-    <div data-role="controlgroup" data-type="vertical">
-     <a class="mas" data-role="button" data-iconpos="notext" data-icon="plus" data-inline="true">Mas</a> 
-     <input name="" class="cant" placeholder="" value="1" data-mini="true" type="text">
-     <a  class="menos" data-role="button" data-iconpos="notext" data-inline="true" data-icon="minus">Menos</a>
-</div>
-
-
-  
-  
-  
+<div class="popcant" data-role="popup" id="mas" data-theme="d" data-overlay-theme="b" class="ui-content" >
+    
+<input name="" class="cant" placeholder="" value="1" data-mini="true" type="text">
+    <a class="mas" data-role="button" data-iconpos="notext" data-icon="plus" data-inline="true"></a>
+    <a  class="menos" data-role="button" data-iconpos="notext" data-inline="true" data-icon="minus"></a>
 
     <a id="bcantok" data-theme="b" data-role="button" data-icon="back">OK</a>
-    <span id="paid" class="hidden"></span>
 </div>
-
-
- <div class="clear"></div> </br></br>
-<ul id="lproductos" data-role="listview" data-inset="true" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Buscar producto...">
-    <li data-icon="plus" data-iconpos="right"><a href="#" pdescripcion='Hielo2' pprecio="123" id="3555" >3555 - Hielo2</a></li>
-
-    
-</ul>
 
 
 
@@ -190,7 +157,7 @@
     <div data-theme="a" data-role="footer" data-position="fixed">
         <h3>
         </h3>
-        <a data-role="button" href="#" data-icon="check" data-iconpos="right" class="ui-btn-right" id="enviarpedido">
+        <a data-role="button" href="#page1" data-icon="check" data-iconpos="right" class="ui-btn-right" id="enviarpedido">
             Terminar Pedido
         </a>
     </div>

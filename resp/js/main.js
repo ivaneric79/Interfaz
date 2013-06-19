@@ -49,24 +49,7 @@ url: "http://10.32.127.5/thmovil/com/getclientes.asp"
 
 }
 
-function getProductos(lista){
-		
-		$.ajax({
-type: "POST",
-//url: "http://intranet.xube.com.mx/thmovil/com/getclientes.asp"
-url: "http://10.32.127.5/thmovil/com/productos.asp"
-}).done(function(respuesta) {
-	var productos = JSON.parse(respuesta);
-	
-   $.each(productos, function(i, val) {
-	$('#lproductos').append('<li data-icon="plus" data-iconpos="right"><a id="'+$.trim(val.CVE_ART)+'" href="#" pdescripcion="'+$.trim(val.DESCR)+'" pprecio="'+$.trim(val.PRECIO)+'">'+$.trim(val.CVE_ART)+' - ' +$.trim(val.DESCR)+'</a></li>');
-
-   });
-    });
-
-}
-
-function clickCliente(elemento) {
+function clickCliente (elemento) {
 	console.log(elemento);
 	var cid = $(elemento).attr('id');
 	var ccredito = parseInt($(elemento).attr('credito'));
@@ -92,62 +75,6 @@ return false;
 
 	// body...
 }
-
-function partidaClick(obj){
-	
-	
-$('#paid').text($(obj).attr('pclave'));
-
-	// body...
-
-}
-
-function eliminapartida(obj) {
-console.log('Eliminar');
-	$(obj).parent().remove();
-	total();
-	// body...
-}
-
-function total() {
-	// body...
-			var total = 0;
-$( "li.linea" ).each(function(index) {
-
-	 
-     total = total + parseFloat($(".precio",this).text()).toFixed(2)*parseInt($(".cantidad",this).text());
-      
-   
-
-});
-
-$("#total").text(total);
-}
-
-
-function terminarpedido() {
-
-	// body...
-
-var productos = [];
-
-$( "li.linea" ).each(function(index) {
-
-	productos.push({ 
-        "idArt" : $(".partida",this).attr("pclave"),
-        "cantArt"  : $(".cantidad",this).text()
-     
-    });
-
-});
-
- console.log(productos);
-
-
-	return true;
-}
-
-
 
 
 $(document).ready(function() {
@@ -176,7 +103,7 @@ $(document).ready(function() {
 		//obtener folio pedido
 		// guardar variable
 
-		$.mobile.changePage( "#page4", {
+		$.mobile.changePage( "#page3", {
 			transition: "slide"
 		});
 	});
@@ -185,7 +112,7 @@ $(document).ready(function() {
 		//obtener folio devolucion
 		//guardar variable
 
-		$.mobile.changePage( "#page4", {
+		$.mobile.changePage( "#page3", {
 			transition: "slide"
 		});
 	});
@@ -205,7 +132,6 @@ $('.mas').click(function() {
 	var valor = parseInt($('.cant').val());
 	$('.cant').val(valor + 1);
 
-
 	// body...
 });
 
@@ -217,59 +143,15 @@ $('.menos').click(function() {
 	// body...
 });
 
-
-
 $('#bcantok').click(function() {
 
 	var c = $('.cant').val();
-	var id = $('#paid').text();
-	$("a[pclave='"+id+"'] .cantidad").text(c);
-	$('#paid').text('');
+	
+	$('.cantidad').text(c);
 	$('.popcant').popup('close');
-	total();
-	// body...
-
-});
-
-
-$('.okpedido').click(function() {
-    
-
-	$.mobile.changePage( "#page3", {
-			transition: "slide"
-		});
 	// body...
 });
 
-$('#lproductos li a').click(function() {
-	var pprecio = $(this).attr('pprecio');
-	var pdescripcion = $(this).attr('pdescripcion');
-	var pid = $(this).attr('id');
-if ($("a[pclave='"+pid+"']").length > 0){
-  // do something here
-
-var cantnew = parseInt($("a[pclave='"+pid+"'] .cantidad").text());
-$("a[pclave='"+pid+"'] .cantidad").text(cantnew+1);
-
- 
-$('.ui-listview-filter .ui-input-clear').click();
-total();
-
-}else{
-	$('.productlist').append('<li class="linea"><a href="#mas" data-rel="popup" data-position-to="window" data-transition="pop" pclave="'+pid+'" class="partida" onclick="partidaClick(this)"><span class="cantidad">1</span><span class="producto">'+pdescripcion+'</span><span class="precio">'+pprecio+'</span></a><a href="#" onclick="eliminapartida(this)">Eliminar</a><div class="clear"></div></li>');
-	$(".productlist").listview("refresh");
-	$('.ui-listview-filter .ui-input-clear').click();
-	total();
-}
-
-	// body...
-});
-
-
-$('#enviarpedido').click(function() {
-	// body...
-	var stats = terminarpedido();
-});
 
 
 

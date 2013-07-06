@@ -2,8 +2,8 @@ function getAgentes () {
 
 	$.ajax({
 		type: "POST",
-		url: "http://10.32.127.5/thmovil/com/asp/getagente.asp"
-//url: "http://intranet.xube.com.mx/thmovil/com/getagente.asp"
+		//url: "http://10.32.127.5/thmovil/com/getagente.asp"
+url: "http://intranet.xube.com.mx/thmovil/com/getagente.asp"
 }).done(function(respuesta) {
 	var parsed = JSON.parse(respuesta);
 
@@ -30,7 +30,8 @@ function getclientes () {
 	$.ajax({
 		type: "POST",
 //url: "http://intranet.xube.com.mx/thmovil/com/getclientes.asp"
-url: "http://10.32.127.5/thmovil/com/asp/getclientes.asp"
+url: "http://intranet.xube.com.mx/thmovil/com/getclientes.asp"
+//url: "http://10.32.127.5/thmovil/com/asp/getclientes.asp"
 }).done(function(respuesta) {
 	var clientes = JSON.parse(respuesta);
 	
@@ -52,8 +53,12 @@ function getProductos(lista){
 
 	$.ajax({
 		type: "POST",
-//url: "http://intranet.xube.com.mx/thmovil/com/getclientes.asp"
-url: "http://10.32.127.5/thmovil/com/asp/getproductos.asp"
+
+//url: "http://10.32.127.5/thmovil/com/asp/getproductos.asp"
+url: "http://intranet.xube.com.mx/thmovil/com/getproductos.asp"
+, data: {
+	lista: lista
+}
 }).done(function(respuesta) {
 	var productos = JSON.parse(respuesta);
 	
@@ -172,7 +177,7 @@ function terminarpedido() {
 
     	$.ajax({
 		type: "POST",
-//url: "http://intranet.xube.com.mx/thmovil/com/getclientes.asp"
+
 data: {
 	total : total,
 	cleinte: cliente,
@@ -180,7 +185,8 @@ data: {
 	tipoventa: tipoventa,
 	partidas: productos
 },
-url: "http://10.32.127.5/thmovil/com/asp/pedido.asp"
+//url: "http://10.32.127.5/thmovil/com/asp/pedido.asp"
+url: "http://intranet.xube.com.mx/thmovil/com/pedido.asp"
 }).done(function(respuesta) {
 	
 });
@@ -210,8 +216,9 @@ $(document).ready(function() {
 //guardar agenteid y anip
 $.ajax({
 	type: "POST",
-//url: "http://intranet.xube.com.mx/thmovil/com/getclientes.asp"
-url: "http://10.32.127.5/thmovil/com/asp/loginagente.asp",
+
+//url: "http://10.32.127.5/thmovil/com/asp/loginagente.asp",
+url: "http://intranet.xube.com.mx/thmovil/com/loginagente.asp",
 data: { id: $.trim(agenteid), psw: anip }
 }).done(function(respuesta) {
 	
@@ -300,13 +307,14 @@ $.mobile.changePage( "#page2", {
 
 
 		$('.info').attr('clienteid',$('.ccclave').text());
-		$('.info').attr('listadeprecios','lista');
+		$('.info').attr('listadeprecios','9');
 
 
 
 		//obtener lista de precios
 		//guardar variable
-		var lista;
+		var lista = $('.info').attr('listadeprecios');
+		console.log(lista+ ' lista de precios');
 		getProductos(lista);
 		$.mobile.changePage( "#page3", {
 			transition: "slide"

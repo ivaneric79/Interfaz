@@ -1,9 +1,10 @@
 <!--#include file="connect.asp"-->
 <%
- strpassword = request("psw") ' Debe estar en MD5
+
+ strpassword = request("psw")
  strusuario = request("id")
 
-lcSQLString = "SELECT CVE_VEND, CLASIFIC, SUBSTRING(sys.fn_sqlvarbasetostr(HASHBYTES('MD5', CLASIFIC)), 3, 32) AS PASSW WHERE PASSW ='"&strpassword&"' AND CVE_VEND like '%"&strusuario&"%'"
+lcSQLString = "SELECT CVE_VEND, CLASIFIC WHERE PASSW ='"&strpassword&"' AND CVE_VEND like '%"&strusuario&"%'"
 
 rs.Open lcSQLString,dbConn
 

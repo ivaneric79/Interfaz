@@ -202,6 +202,7 @@ url: "http://intranet.xube.com.mx/thmovil/com/pedido.asp"
 $(document).ready(function() {
 
 
+    $.mobile.allowCrossDomainPages = true;
 
 	getAgentes();
 	getclientes();

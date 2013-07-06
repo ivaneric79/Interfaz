@@ -30,6 +30,8 @@
         <h3>
             Pedidos TecnoHielo
         </h3>
+         <a data-role="button" data-iconpos="notext" href="#config" data-icon="bars" data-iconpos="left"
+        class="ui-btn-right"></a>
     </div>
     <div data-role="content">
       
@@ -196,6 +198,43 @@
         </h3>
         <a data-role="button" href="#" data-icon="check" data-iconpos="right" class="ui-btn-right" id="enviarpedido">
             Terminar Pedido
+        </a>
+    </div>
+</div>
+</div>
+
+<div data-role="page" id="config">
+    <div data-theme="a" data-role="header">
+        <h3>
+            Configuración
+        </h3>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview" data-divider-theme="b" data-inset="true">
+            <li data-theme="c">
+                <a href="#server" data-transition="slide">
+                    Server
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div data-role="page" id="server">
+    <div data-theme="a" data-role="header">
+        <h3>
+            Configuración
+        </h3>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain">
+            <label for="textinput1">
+                Servidor
+            </label>
+            <input name="" id="textinput1" placeholder="" value="" type="text">
+        </div>
+        <a data-role="button" href="#page1">
+            Guardar
         </a>
     </div>
 </div>

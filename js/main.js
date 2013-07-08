@@ -1,9 +1,9 @@
-function getAgentes () {
+function getAgentes (server) {
 
 	$.ajax({
 		type: "POST",
 		//url: "http://10.32.127.5/thmovil/com/getagente.asp"
-url: "http://intranet.xube.com.mx/thmovil/com/getagente.asp"
+url: server+"getagente.asp"
 }).done(function(respuesta) {
 	var parsed = JSON.parse(respuesta);
 
@@ -24,13 +24,13 @@ url: "http://intranet.xube.com.mx/thmovil/com/getagente.asp"
 
 
 
-function getclientes () {
+function getclientes (server) {
 	//obtiene lista de clientes
 	
 	$.ajax({
 		type: "POST",
 //url: "http://intranet.xube.com.mx/thmovil/com/getclientes.asp"
-url: "http://intranet.xube.com.mx/thmovil/com/getclientes.asp"
+url: server+"getclientes.asp"
 //url: "http://10.32.127.5/thmovil/com/asp/getclientes.asp"
 }).done(function(respuesta) {
 	var clientes = JSON.parse(respuesta);
@@ -49,13 +49,13 @@ url: "http://intranet.xube.com.mx/thmovil/com/getclientes.asp"
 
 }
 
-function getProductos(lista){
+function getProductos(server, lista){
 
 	$.ajax({
 		type: "POST",
 
 //url: "http://10.32.127.5/thmovil/com/asp/getproductos.asp"
-url: "http://intranet.xube.com.mx/thmovil/com/getproductos.asp"
+url: server+"getproductos.asp"
 , data: {
 	lista: lista
 }
@@ -151,7 +151,7 @@ function total() {
 }
 
 
-function terminarpedido() {
+function terminarpedido(server) {
 
 	// body...
 
@@ -186,7 +186,7 @@ data: {
 	partidas: productos
 },
 //url: "http://10.32.127.5/thmovil/com/asp/pedido.asp"
-url: "http://intranet.xube.com.mx/thmovil/com/pedido.asp"
+url: server+"pedido.asp"
 }).done(function(respuesta) {
 	
 });
@@ -201,16 +201,18 @@ url: "http://intranet.xube.com.mx/thmovil/com/pedido.asp"
 
 $(document).ready(function() {
 
+var server = "http://intranet.xube.com.mx/thmovil/com/";
 
     $.mobile.allowCrossDomainPages = true;
 
-	getAgentes();
-	getclientes();
+	getAgentes(server);
+	getclientes(server);
 
 
 	$('#iniciar').click(function(){
 		var agenteid = $("#agente option:selected").val();
-		var anip = $.md5($("#anip").val());
+		//var anip = $.md5($("#anip").val());
+		var anip = $("#anip").val();
 		console.log(agenteid);
 		console.log(anip);
 //funcion de login
@@ -219,15 +221,17 @@ $.ajax({
 	type: "POST",
 
 //url: "http://10.32.127.5/thmovil/com/asp/loginagente.asp",
-url: "http://intranet.xube.com.mx/thmovil/com/loginagente.asp",
+url: server+"login.asp",
 data: { id: $.trim(agenteid), psw: anip }
 }).done(function(respuesta) {
-	
-	if (respuesta = true){
 
+	console.log(respuesta);
+	
+	if (respuesta == true){
+console.log('ok');
 
 	}else{
-
+console.log('vas pa atras');
 
 	}
 
@@ -316,7 +320,7 @@ $.mobile.changePage( "#page2", {
 		//guardar variable
 		var lista = $('.info').attr('listadeprecios');
 		console.log(lista+ ' lista de precios');
-		getProductos(lista);
+		getProductos(server,lista);
 		$.mobile.changePage( "#page3", {
 			transition: "slide"
 		});
@@ -358,7 +362,7 @@ $('.okpedido').hide();
 
 	$('#enviarpedido').click(function() {
 	// body...
-	var stats = terminarpedido();
+	var stats = terminarpedido(server);
 });
 
 

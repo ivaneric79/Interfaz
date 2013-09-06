@@ -24,6 +24,7 @@
 <feature name="http://api.phonegap.com/1.0/notification"/>
 <plugin name="Storage" value="org.apache.cordova.Storage" />
 <plugin name="Capture" value="org.apache.cordova.Capture"/>
+
 <gap:plugin name="com.megster.cordova.bluetoothserial" />
 
     <preference name="phonegap-version" value="2.9.0" />
